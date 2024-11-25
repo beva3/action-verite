@@ -22,7 +22,7 @@ class Gamme_truth_dare{
         
     }
     play(){
-        const truth = [
+        this.truth = [
             "Tell the truth",
             "Be honest",
             "Share your thoughts and feelings",
@@ -36,7 +36,7 @@ class Gamme_truth_dare{
             "Be a good leader"
         ]
 
-        const dare = [
+        this.dare = [
             "Dare to lie",
             "Be difficult",
             "Do something you don't want to do",
@@ -49,11 +49,12 @@ class Gamme_truth_dare{
         ]
 
         game = this.choice()
+        
         console.log(`${game} game`);
         if (game == "Truth") {
-            this.generate(truth)
+            this.generate(this.truth)
         }else if (game == "Dare"){
-            this.generate(dare)
+            this.generate(this.dare)
         }
     }
     
