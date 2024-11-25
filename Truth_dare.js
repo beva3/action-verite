@@ -16,6 +16,8 @@ class Gamme_truth_dare{
     }
     generate(game){
         let index = Math.floor(Math.random() * game.length)
+        console.log(index);
+        
         console.log(`${game[index]}`);
         
     }
@@ -24,17 +26,28 @@ class Gamme_truth_dare{
             "Tell the truth",
             "Be honest",
             "Share your thoughts and feelings",
-            "Be true to yourself"
+            "Be true to yourself",
+            "Be a good listener",
+            "Be open and honest",
+            "Be a good friend",
+            "Be a good listener",
+            "Be a good speaker",
+            "Be a good team player",
+            "Be a good leader"
         ]
 
         const dare = [
             "Dare to lie",
             "Be difficult",
             "Do something you don't want to do",
-            "Do something out of your comfort zone"
+            "Do something out of your comfort zone",
+            "Do something you don't know",
+            "Do something you're afraid of",
+            "Do something you're not comfortable with",
+            "Do something you don't want to do",
+            "Do something you don't know"
         ]
-        console.log(truth);
-        
+
         game = this.choice()
         console.log(`${game} game`);
         if (game == "Truth") {
