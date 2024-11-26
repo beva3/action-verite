@@ -105,6 +105,24 @@
                 font-size: 18px;
             }
         }
+        /* Add Blinking Cursor Effect */
+        #resultat::after {
+            content: "./"; /* The caret symbol */
+            font-weight: bold;
+            font-size: 20px;
+            color: rgb(32, 14, 4);
+            margin-left: 5px;
+            animation: blink 1s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>

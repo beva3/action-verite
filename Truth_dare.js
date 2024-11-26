@@ -38,7 +38,12 @@ class Gamme_truth_dare{
             "Tell the truth",
             "Be honest",
             "Share your thoughts and feelings",
-            "Be true to yourself"
+            "Be true to yourself",
+            "Be open to new ideas",
+            "Say the truth even if it hurts",
+            "Be honest about yourself",
+            "Be honest about yourself",
+            "Be honest about yourself"
         ]
 
         this.dare = [
@@ -56,6 +61,7 @@ class Gamme_truth_dare{
         const t_d = document.getElementById("t_d")
         const resultat = document.getElementById("resultat")
         const restart = document.getElementById("restart")
+        restart.disabled = true
 
         let n_person = 8
         let count = 1;
