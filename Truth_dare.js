@@ -18,7 +18,7 @@ class Gamme_truth_dare{
         let index = Math.floor(Math.random() * game.length)
         console.log(index);
         
-        console.log(`${game[index]}`);
+        return game[index]
         
     }
     play(){
@@ -49,14 +49,17 @@ class Gamme_truth_dare{
         ]
 
         const t_d = document.getElementById("t_d")
+        resultat = document.getElementById("resultat")
         t_d.addEventListener('click', () =>{
             game = this.choice()
             console.log(`${game} game`);
+
             
             if (game == "Truth") {
-                this.generate(this.truth)
+                
+                resultat.textContent = 'Truth : ' + this.generate(this.truth)
             } else if (game == "Dare"){
-                this.generate(this.dare)
+                resultat.textContent = 'Dare : ' + this.generate(this.dare)
             }
         })
 
