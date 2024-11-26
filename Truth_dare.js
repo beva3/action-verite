@@ -48,14 +48,26 @@ class Gamme_truth_dare{
             "Do something you don't know"
         ]
 
-        game = this.choice()
+        const t_d = document.getElementById("t_d")
+        t_d.addEventListener('click', () =>{
+            game = this.choice()
+            console.log(`${game} game`);
+            
+            if (game == "Truth") {
+                this.generate(this.truth)
+            } else if (game == "Dare"){
+                this.generate(this.dare)
+            }
+        })
+
+        // game = this.choice()
         
-        console.log(`${game} game`);
-        if (game == "Truth") {
-            this.generate(this.truth)
-        }else if (game == "Dare"){
-            this.generate(this.dare)
-        }
+        // console.log(`${game} game`);
+        // if (game == "Truth") {
+        //     this.generate(this.truth)
+        // }else if (game == "Dare"){
+        //     this.generate(this.dare)
+        // }
     }
     
 }
