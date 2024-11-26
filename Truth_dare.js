@@ -17,7 +17,7 @@ class Gamme_truth_dare{
     generate(game){
         let index = Math.floor(Math.random() * game.length)
         console.log(index);
-        
+
         return game[index]
         
     }
@@ -26,14 +26,7 @@ class Gamme_truth_dare{
             "Tell the truth",
             "Be honest",
             "Share your thoughts and feelings",
-            "Be true to yourself",
-            "Be a good listener",
-            "Be open and honest",
-            "Be a good friend",
-            "Be a good listener",
-            "Be a good speaker",
-            "Be a good team player",
-            "Be a good leader"
+            "Be true to yourself"
         ]
 
         this.dare = [
@@ -49,28 +42,30 @@ class Gamme_truth_dare{
         ]
 
         const t_d = document.getElementById("t_d")
-        resultat = document.getElementById("resultat")
-        t_d.addEventListener('click', () =>{
-            game = this.choice()
-            console.log(`${game} game`);
+        const resultat = document.getElementById("resultat")
+        const restart = document.getElementById("restart")
 
-            
-            if (game == "Truth") {
-                
-                resultat.textContent = 'Truth : ' + this.generate(this.truth)
-            } else if (game == "Dare"){
-                resultat.textContent = 'Dare : ' + this.generate(this.dare)
+        let n_person = 8
+        let count = 0;
+        
+        t_d.addEventListener('click', () =>{
+            let rand = this.generate(this.truth)
+            resultat.innerHTML = `Game : Truth <br>  ${rand}`
+            restart.disabled = true
+            count++;
+            if(count>n_person){
+                restart.disabled = false
+                restart.addEventListener('click',()=>{
+                    count = 0;
+                    resultat.innerHTML = "";
+                    t_d.disabled = false;
+                    restart.disabled = true;
+                })
+                t_d.disabled = true;
             }
+            
         })
 
-        // game = this.choice()
-        
-        // console.log(`${game} game`);
-        // if (game == "Truth") {
-        //     this.generate(this.truth)
-        // }else if (game == "Dare"){
-        //     this.generate(this.dare)
-        // }
     }
     
 }
