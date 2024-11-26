@@ -5,6 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>game</title>
     <script src="./Truth_dare.js" defer></script>
+    <style>
+         body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            text-align: center;
+            height: 100%;
+        }
+
+        /* Game Container */
+        .myGame {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Buttons Styling */
+        button {
+            background-color: #ff9800;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        /* Button Hover Effects */
+        button:hover {
+            background-color: #ff5722;
+            transform: translateY(-5px);
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+
+        button:disabled {
+            background-color: #cccccc; /* Gray background */
+            color: #666666;          /* Gray text color */
+            cursor: not-allowed;     /* Show not-allowed cursor */
+            opacity: 0.6;            /* Slightly faded look */
+        }
+
+        /* Result Area */
+        #resultat {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease, bounceText 2s infinite;
+        }
+
+        /* Fade-In Effect */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Bounce Effect for Text */
+    @keyframes bounceText {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            #resultat {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="myGame">

@@ -21,6 +21,18 @@ class Gamme_truth_dare{
         return game[index]
         
     }
+    printTextWithDelay(element, text, delay = 10) {
+        element.textContent = ""; // Clear the div
+        let i = 0;
+
+        const interval = setInterval(() => {
+            element.textContent += text[i]; // Add one character at a time
+            i++;
+            if (i >= text.length) {
+                clearInterval(interval); // Stop when all characters are printed
+            }
+        }, delay);
+    }
     play(){
         this.truth = [
             "Tell the truth",
@@ -46,22 +58,24 @@ class Gamme_truth_dare{
         const restart = document.getElementById("restart")
 
         let n_person = 8
-        let count = 0;
+        let count = 1;
         
         t_d.addEventListener('click', () =>{
             let rand = this.generate(this.truth)
-            resultat.innerHTML = `Game : Truth <br>  ${rand}`
+            // resultat.innerHTML = `Game : Truth <br>  ${rand}`
+            this.printTextWithDelay(resultat,rand,100)
             restart.disabled = true
             count++;
             if(count>n_person){
                 restart.disabled = false
+                t_d.disabled = true;
                 restart.addEventListener('click',()=>{
-                    count = 0;
+                    count = 1;
                     resultat.innerHTML = "";
                     t_d.disabled = false;
                     restart.disabled = true;
+                   
                 })
-                t_d.disabled = true;
             }
             
         })
