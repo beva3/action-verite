@@ -64,6 +64,7 @@ class Gamme_truth_dare{
             }
         }, delay);
     }
+
     play(){
         this.truth = [
             "Tell the truth",
@@ -96,8 +97,12 @@ class Gamme_truth_dare{
         const t_d = document.getElementById("t_d")
         const resultat = document.getElementById("resultat")
         const restart = document.getElementById("restart")
-        restart.disabled = true
+        const truth_dare = [
+            this.truth,
+            this.dare,
+        ]
 
+        restart.disabled = true
         let n_game_for_you = 2
         let count = 1;
 
