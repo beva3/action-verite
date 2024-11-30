@@ -123,12 +123,71 @@
                 opacity: 0;
             }
         }
+
+        .suggestion-box {
+            border: 2px solid #4caf50; /* Green border for a suggestion theme */
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 400px; /* Limit the width for better readability */
+            text-align: center;
+            border-radius: 10px; /* Rounded corners */
+            background-color: #f9f9f9; /* Light background */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+        }
+
+        .player-info h2 {
+            font-size: 24px;
+            margin: 0;
+            color: #333; /* Dark text for the player's name */
+        }
+
+        .player-info .suggestion {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #555; /* Slightly lighter text for the suggestion */
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4caf50; /* Button matches the border theme */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .action-btn:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+        }
+
+
     </style>
 </head>
 <body>
     <div class="myGame">
-        <!-- <button id="choice">choice</button> -->
-        <div id="resultat"></div>
+        <button id="play">Play</button>
+        <div class="suggestion-box">
+            <div class="player-info">
+                <h2>Player: John Doe</h2>
+                <p class="suggestion">
+                    never give up our game
+                </p>
+            </div>
+            <button class="action-btn">Take Action</button>
+        </div>
+        
+        <h1 class="title" id="choice">Truth</h1>
+        
+        
+
+         <div id="_players">
+            <h1 id="name_payer">Raphael</h1>
+            <p >Game for you : <span id="n_game">1</span></p>
+         </div>
+        
+         <div id="resultat"></div>
         <button id="t_d" >generer</button>
         <button id="restart">restart</button>
         

@@ -4,8 +4,15 @@ class Gamme_truth_dare{
         this.dare  = []
         this.choices = {
             1: "Truth",
-            2: "Dare"
+
         }
+
+        this.players= [
+            "John",
+            "Jean",
+            "Robert"
+        ]
+        this.n_game_for_you = 1;
     }
 
     choice(){
@@ -58,13 +65,22 @@ class Gamme_truth_dare{
             "Do something you don't know"
         ]
 
+        const choice = document.getElementById("choice")
+        const name_player = document.getElementById("name_player")
+        const n_game = document.getElementById("n_game")
+
         const t_d = document.getElementById("t_d")
         const resultat = document.getElementById("resultat")
         const restart = document.getElementById("restart")
         restart.disabled = true
 
-        let n_person = 8
+        let n_game_for_you = 2
         let count = 1;
+
+        n_game.textContent = n_game_for_you
+        
+        
+
         
         t_d.addEventListener('click', () =>{
             let rand = this.generate(this.truth)
@@ -72,7 +88,7 @@ class Gamme_truth_dare{
             this.printTextWithDelay(resultat,rand,100)
             restart.disabled = true
             count++;
-            if(count>n_person){
+            if(count>n_game_for_you){
                 restart.disabled = false
                 t_d.disabled = true;
                 restart.addEventListener('click',()=>{
