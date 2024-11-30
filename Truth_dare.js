@@ -3,21 +3,13 @@ class Gamme_truth_dare{
         this.truth = []
         this.dare  = []
 
+        this.ch = document.getElementById('choice');
         this.choices = {
             1: "Truth",
             2: "Dare"
         }
-
-        this.players= [
-            "John",
-            "Jean",
-            "Robert",
-            "Michael",
-            "David",
-            "Sophia",
-            "Emma",
-            "Olivia"
-        ]
+        this.our_game = null
+        this.players= []
         this.n_game_for_you = 1;
     }
 
@@ -47,7 +39,7 @@ class Gamme_truth_dare{
 
     generate(game){
         let index = Math.floor(Math.random() * game.length)
-        console.log(index);
+        console.log('ito no izy',index);
 
         return game[index]
         
@@ -63,6 +55,23 @@ class Gamme_truth_dare{
                 clearInterval(interval); // Stop when all characters are printed
             }
         }, delay);
+    }
+
+    take_action(){
+        const btn_take_Action = document.querySelector('.action-btn');
+        
+        
+        btn_take_Action.addEventListener('click', () =>{
+            this.ch.textContent = this.choice()
+            if (this.ch.textContent === 'Truth'){
+                this.our_game =this.truth
+            }else{
+                this.our_game = this.dare
+            }
+            
+        });
+        
+        console.log('take_action');
     }
 
     play(){
@@ -89,7 +98,16 @@ class Gamme_truth_dare{
             "Do something you don't want to do",
             "Do something you don't know"
         ]
-
+        this.players = [
+            "John",
+            "Jean",
+            "Robert",
+            "Michael",
+            "David",
+            "Sophia",
+            "Emma",
+            "Olivia"
+        ]
         const choice = document.getElementById("choice")
         const name_player = document.getElementById("name_player")
         const n_game = document.getElementById("n_game")
@@ -103,14 +121,16 @@ class Gamme_truth_dare{
         ]
 
         restart.disabled = true
-        let n_game_for_you = 2
+        let n_game_for_you = 3
         let count = 1;
 
         n_game.textContent = n_game_for_you
         
         
         t_d.addEventListener('click', () =>{
-            let rand = this.generate(this.truth)
+            let rand = this.generate(this.our_game)
+            // console.log(this.our_game);
+            
             // resultat.innerHTML = `Game : Truth <br>  ${rand}`
             this.printTextWithDelay(resultat,rand,100)
             restart.disabled = true
@@ -123,7 +143,7 @@ class Gamme_truth_dare{
                     resultat.innerHTML = "";
                     t_d.disabled = false;
                     restart.disabled = true;
-                   
+                    location.reload();
                 })
             }
             
@@ -135,5 +155,6 @@ class Gamme_truth_dare{
 
 let game = new Gamme_truth_dare();
 game.srart()
+game.take_action()
 game.play();
 // game.generatePlayers();
