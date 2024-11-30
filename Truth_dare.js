@@ -2,15 +2,21 @@ class Gamme_truth_dare{
     constructor(){
         this.truth = []
         this.dare  = []
+
         this.choices = {
             1: "Truth",
-
+            2: "Dare"
         }
 
         this.players= [
             "John",
             "Jean",
-            "Robert"
+            "Robert",
+            "Michael",
+            "David",
+            "Sophia",
+            "Emma",
+            "Olivia"
         ]
         this.n_game_for_you = 1;
     }
@@ -21,6 +27,24 @@ class Gamme_truth_dare{
         
         return this.choices[index]
     }
+    generatePlayers(){
+        let index = Math.floor(Math.random() * (this.players.length))
+        console.log('Generating players',' ', index);
+        
+        return this.players[index]
+    }
+
+    srart(){
+        let btn_start = document.getElementById('btn-start');
+        let player = document.getElementsByClassName('name_payer')
+        
+        btn_start.addEventListener('click', ()=>{
+            const player_name = this.generatePlayers();
+            player[0].textContent = `Hello ${player_name}`
+            player[1].textContent = `${player_name}`
+        })
+    }
+
     generate(game){
         let index = Math.floor(Math.random() * game.length)
         console.log(index);
@@ -80,8 +104,6 @@ class Gamme_truth_dare{
         n_game.textContent = n_game_for_you
         
         
-
-        
         t_d.addEventListener('click', () =>{
             let rand = this.generate(this.truth)
             // resultat.innerHTML = `Game : Truth <br>  ${rand}`
@@ -107,4 +129,6 @@ class Gamme_truth_dare{
 }
 
 let game = new Gamme_truth_dare();
+game.srart()
 game.play();
+// game.generatePlayers();
