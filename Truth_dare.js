@@ -1,4 +1,5 @@
 class Gamme_truth_dare{
+    
     constructor(){
         this.truth = []
         this.dare  = []
@@ -29,8 +30,11 @@ class Gamme_truth_dare{
     srart(){
         let btn_start = document.getElementById('btn-start');
         let player = document.getElementsByClassName('name_payer')
+        const suggestion = document.querySelector('.suggestion-box');
         
         btn_start.addEventListener('click', ()=>{
+            suggestion.style.visibility = 'visible';
+            btn_start.disabled = true;
             const player_name = this.generatePlayers();
             player[0].textContent = `Hello ${player_name}`
             player[1].textContent = `${player_name}`
@@ -62,6 +66,11 @@ class Gamme_truth_dare{
         
         
         btn_take_Action.addEventListener('click', () =>{
+            // get number :
+            const n_game = document.getElementById("n_game")
+            this.n_game_for_you = Math.floor(Math.random() * 3)+1;
+            n_game.textContent = this.n_game_for_you
+            btn_take_Action.disabled=true;
             this.ch.textContent = this.choice()
             if (this.ch.textContent === 'Truth'){
                 this.our_game =this.truth
@@ -110,7 +119,7 @@ class Gamme_truth_dare{
         ]
         const choice = document.getElementById("choice")
         const name_player = document.getElementById("name_player")
-        const n_game = document.getElementById("n_game")
+        // const n_game = document.getElementById("n_game")
 
         const t_d = document.getElementById("t_d")
         const resultat = document.getElementById("resultat")
@@ -121,11 +130,8 @@ class Gamme_truth_dare{
         ]
 
         restart.disabled = true
-        let n_game_for_you = 3
+        // let n_game_for_you = Math.floor(Math.random() * 4)
         let count = 1;
-
-        n_game.textContent = n_game_for_you
-        
         
         t_d.addEventListener('click', () =>{
             let rand = this.generate(this.our_game)
@@ -135,7 +141,7 @@ class Gamme_truth_dare{
             this.printTextWithDelay(resultat,rand,100)
             restart.disabled = true
             count++;
-            if(count>n_game_for_you){
+            if(count>this.n_game_for_you){
                 restart.disabled = false
                 t_d.disabled = true;
                 restart.addEventListener('click',()=>{

@@ -42,7 +42,7 @@
         }
 
         /* Button Hover Effects */
-        button:hover {
+        button:not(:disabled):hover {
             background-color: #ff5722;
             transform: translateY(-5px);
         }
@@ -133,6 +133,7 @@
             border-radius: 10px; /* Rounded corners */
             background-color: #f9f9f9; /* Light background */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+            visibility: hidden;
         }
 
         .player-info h2 {
@@ -169,6 +170,7 @@
 <body>
     <div class="myGame">
         <button id="btn-start">Start</button>
+        
         <div class="suggestion-box">
             <div class="player-info">
                 <h2 class="name_payer">Player: John Doe</h2>
@@ -183,13 +185,13 @@
         
         
 
-         <div id="_players">
-            <h1 class="name_payer animated-text" >Raphael</h1>
-            <h1 class="title" id="choice">Truth</h1>
+        <div id="_players">
+            <h1 class="name_payer animated-text" >iza ary oooo !!!!</h1>
+            <h1 class="title" id="choice">truth or dare</h1>
             <p >Game for you : <span id="n_game">1</span></p>
-         </div>
+        </div>
         
-         <div id="resultat"></div>
+        <div id="resultat"></div>
         <button id="t_d" >generer</button>
         <button id="restart">restart</button>
         
